@@ -5,14 +5,13 @@ import {
   combineReducers,
 } from 'redux';
 
-import thunk from 'redux-thunk';
+
 import { rootReducer } from '../reducers';
-import { apiMiddleware } from 'redux-api-middleware';
 
 import { logger } from './logger';
 
 export const configureStore = (initialState, navReducer) => {
-  const middleware = applyMiddleware(logger, apiMiddleware, thunk);
+  const middleware = applyMiddleware(logger);
   const appReducer = combineReducers({
     nav: navReducer,
     app: rootReducer,
